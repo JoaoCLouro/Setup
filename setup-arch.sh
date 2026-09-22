@@ -19,6 +19,28 @@ else
     echo "Git identity already configured."
 fi
 
+echo "==> Checking / Generating SSH Keys..."
+SSH_KEY="$HOME/.ssh/id_ed25519"
+if [ ! -f "$SSH_KEY" ]; then
+    echo "Generating a new Ed25519 SSH key..."
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    
+    default_email="$(git config --global user.email)"
+    read -p "Enter email for SSH key comment [$default_email]: " ssh_email
+    ssh_email="${ssh_email:-$default_email}"
+    
+    ssh-keygen -t ed25519 -C "$ssh_email" -f "$SSH_KEY" -N ""
+    echo "SSH key generated successfully."
+else
+    echo "SSH key already exists at $SSH_KEY."
+fi
+
+echo "------------------------------------------------------------"
+echo "Your SSH Public Key (copy this for GitHub/servers):"
+cat "${SSH_KEY}.pub"
+echo "------------------------------------------------------------"
+
 echo "==> Updating package databases and upgrading system..."
 # FAILSAFE: If pacman fails, fetch a fresh global HTTPS mirrorlist
 if ! sudo pacman -Syu --noconfirm; then
@@ -56,7 +78,10 @@ sudo pacman -S --noconfirm --needed \
     gmp \
     libffi \
     ncurses \
-    btop
+    openssh
+
+echo "==> Enabling and starting SSH daemon..."
+sudo systemctl enable --now sshd
 
 echo "==> Installing Rust (rustup)..."
 if ! command -v rustc &> /dev/null; then

@@ -19,6 +19,29 @@ else
     echo "Git identity already configured."
 fi
 
+echo "==> Checking / Generating SSH Keys..."
+SSH_KEY="$HOME/.ssh/id_ed25519"
+if [ ! -f "$SSH_KEY" ]; then
+    echo "Generating a new Ed25519 SSH key..."
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    
+    # Use git email if available, otherwise prompt
+    default_email="$(git config --global user.email)"
+    read -p "Enter email for SSH key comment [$default_email]: " ssh_email
+    ssh_email="${ssh_email:-$default_email}"
+    
+    ssh-keygen -t ed25519 -C "$ssh_email" -f "$SSH_KEY" -N ""
+    echo "SSH key generated successfully."
+else
+    echo "SSH key already exists at $SSH_KEY."
+fi
+
+echo "------------------------------------------------------------"
+echo "Your SSH Public Key (copy this for GitHub/servers):"
+cat "${SSH_KEY}.pub"
+echo "------------------------------------------------------------"
+
 echo "==> Updating package lists..."
 # FAILSAFE: Try normal update. If it fails, apply network fixes.
 if ! sudo apt update; then
@@ -44,7 +67,7 @@ fi
 echo "==> Upgrading existing packages..."
 sudo apt upgrade -y
 
-echo "==> Installing system packages (Git, C essentials, Python, GitHub CLI, Node.js, Firefox)..."
+echo "==> Installing system packages (Git, C essentials, Python, GitHub CLI, Node.js, Firefox, SSH)..."
 sudo apt install -y \
     git \
     build-essential \
@@ -65,7 +88,12 @@ sudo apt install -y \
     libgmp-dev \
     libffi-dev \
     libncurses-dev \
+    openssh-client \
+    openssh-server \
     btop
+
+echo "==> Enabling and starting SSH service..."
+sudo systemctl enable --now ssh
 
 echo "==> Installing Pyright Language Server via npm..."
 sudo npm install -g pyright

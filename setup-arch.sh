@@ -55,7 +55,8 @@ sudo pacman -S --noconfirm --needed \
     firefox \
     gmp \
     libffi \
-    ncurses
+    ncurses \
+    btop
 
 echo "==> Installing Rust (rustup)..."
 if ! command -v rustc &> /dev/null; then

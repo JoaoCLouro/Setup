@@ -64,7 +64,8 @@ sudo apt install -y \
     firefox-esr \
     libgmp-dev \
     libffi-dev \
-    libncurses-dev
+    libncurses-dev \
+    btop
 
 echo "==> Installing Pyright Language Server via npm..."
 sudo npm install -g pyright

@@ -1,4 +1,6 @@
     git \
+    fastfetch \ 
+    fish \
     tree-sitter \
     build-essential \
     gdb \

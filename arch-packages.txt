@@ -1,4 +1,6 @@
     git \
+    fastfetch \
+    fish \
     tree-sitter \
     base-devel \
     gdb \

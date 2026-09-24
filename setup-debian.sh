@@ -68,31 +68,8 @@ echo "==> Upgrading existing packages..."
 sudo apt upgrade -y
 
 echo "==> Installing system packages (Git, C essentials, Python, GitHub CLI, Node.js, Firefox, SSH)..."
-sudo apt install -y \
-    git \
-    tree-sitter \
-    build-essential \
-    gdb \
-    neovim \
-    python3 \
-    python3-pip \
-    python3-venv \
-    curl \
-    wget \
-    gh \
-    ripgrep \
-    fd-find \
-    clangd \
-    nodejs \
-    npm \
-    firefox-esr \
-    libgmp-dev \
-    libffi-dev \
-    libncurses-dev \
-    openssh-client \
-    openssh-server \
-    btop
-
+cat "debian-packages.txt" | sudo apt install -y \
+    
 echo "==> Enabling and starting SSH service..."
 sudo systemctl enable --now ssh
 

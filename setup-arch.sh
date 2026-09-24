@@ -60,28 +60,9 @@ if ! sudo pacman -Syu --noconfirm; then
 fi
 
 echo "==> Installing system packages..."
-sudo pacman -S --noconfirm --needed \
-    git \
-    tree-sitter \
-    base-devel \
-    gdb \
-    neovim \
-    python \
-    python-pip \
-    curl \
-    wget \
-    github-cli \
-    ripgrep \
-    fd \
-    clang \
-    pyright \
-    firefox \
-    gmp \
-    libffi \
-    ncurses \
-    openssh
-
-echo "==> Enabling and starting SSH daemon..."
+cat "arch-packages.txt" | sudo pacman -S --noconfirm --needed \
+    
+    echo "==> Enabling and starting SSH daemon..."
 sudo systemctl enable --now sshd
 
 echo "==> Installing Rust (rustup)..."

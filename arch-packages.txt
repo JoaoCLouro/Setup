@@ -1,0 +1,20 @@
+    git \
+    tree-sitter \
+    base-devel \
+    gdb \
+    neovim \
+    python \
+    python-pip \
+    curl \
+    wget \
+    github-cli \
+    ripgrep \
+    fd \
+    clang \
+    pyright \
+    firefox \
+    gmp \
+    libffi \
+    ncurses \
+    openssh
+

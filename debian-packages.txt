@@ -1,0 +1,24 @@
+    git \
+    tree-sitter \
+    build-essential \
+    gdb \
+    neovim \
+    python3 \
+    python3-pip \
+    python3-venv \
+    curl \
+    wget \
+    gh \
+    ripgrep \
+    fd-find \
+    clangd \
+    nodejs \
+    npm \
+    firefox-esr \
+    libgmp-dev \
+    libffi-dev \
+    libncurses-dev \
+    openssh-client \
+    openssh-server \
+    btop
+

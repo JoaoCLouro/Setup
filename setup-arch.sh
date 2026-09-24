@@ -62,6 +62,7 @@ fi
 echo "==> Installing system packages..."
 sudo pacman -S --noconfirm --needed \
     git \
+    tree-sitter \
     base-devel \
     gdb \
     neovim \

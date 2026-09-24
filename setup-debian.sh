@@ -70,6 +70,7 @@ sudo apt upgrade -y
 echo "==> Installing system packages (Git, C essentials, Python, GitHub CLI, Node.js, Firefox, SSH)..."
 sudo apt install -y \
     git \
+    tree-sitter \
     build-essential \
     gdb \
     neovim \

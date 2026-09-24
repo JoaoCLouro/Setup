@@ -26,6 +26,4 @@ chmod +x Setup
 
 ## TODO
 * DE config;
-* Fish terminal config;
-* Optional work folders 
 * Flag reading for setup config

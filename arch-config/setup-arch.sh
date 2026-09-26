@@ -61,6 +61,8 @@ fi
 
 echo "==> Installing system packages..."
 cat "arch-packages.txt" | sudo pacman -S --noconfirm --needed \
+
+sudo sensors-detect --auto
     
     echo "==> Enabling and starting SSH daemon..."
 sudo systemctl enable --now sshd

@@ -69,6 +69,8 @@ sudo apt upgrade -y
 
 echo "==> Installing system packages (Git, C essentials, Python, GitHub CLI, Node.js, Firefox, SSH)..."
 cat "debian-packages.txt" | sudo apt install -y \
+
+sudo sensors-detect --auto
     
 echo "==> Enabling and starting SSH service..."
 sudo systemctl enable --now ssh

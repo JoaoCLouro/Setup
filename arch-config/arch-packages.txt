@@ -1,4 +1,10 @@
     git \
+    sassc \
+    gtk-engine-murrine \
+    lm_sensors \
+    sysstat \
+    libgtop \
+    tlp \
     ufw \
     fastfetch \
     fish \

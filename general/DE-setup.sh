@@ -103,4 +103,12 @@ gsettings set org.gnome.shell.extensions.vitals show-fan true
 # Pin the specific CPU stats directly to the top bar (Hot Sensors)
 gsettings set org.gnome.shell.extensions.vitals hot-sensors "['_processor_usage_', '_processor_frequency_', '_temperature_processor_', '_voltage_processor_']"
 
+# 10. Set the Desktop Wallpaper
+RAW_PATH="$PWD/../Style-resources/wallpaper.png"
+ABSOLUTE_PATH=$(realpath "$RAW_PATH")
+WALLPAPER_URI="file://$ABSOLUTE_PATH"
+
+gsettings set org.gnome.desktop.background picture-uri "$WALLPAPER_URI"
+gsettings set org.gnome.desktop.background picture-uri-dark "$WALLPAPER_URI"
+
 echo "Extensions installed and Blur my Shell customized!"

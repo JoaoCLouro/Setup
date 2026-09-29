@@ -11,9 +11,19 @@
 # -d :debian
 # -a :arch
 #
-# Dry run:
+
+# Installation type:
+#
+# [default/ no flag] full install
+#
+# -m    (minimal installation: see [minimal installation](#minimal installation packages))
+# 
 # -dry (no package installed)
 #
+# Desktop Env:
+#
+# [default/no flag] tailling window manager (to choose default)
+# -g (gnome)
 #
 # To complete later
 

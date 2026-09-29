@@ -2,7 +2,7 @@
 - Personal and work laptop configuration scripts
 
 ## Setup
-Before running anything you need to get a few packages:
+Before running anything you need to get a few packages: 
 
 ### For Arch
 ```bash
@@ -25,5 +25,10 @@ chmod +x Setup
 ```
 
 ## TODO
-* DE config;
+* Improve DE setup;
 * Flag reading for setup config
+
+## NOTES
+* Debian setup is discontinued as **arch is vastly superior**
+
+* Each distribution main setup script will ask for a user name and email for github. To skip this setups **make sure you are logged in on your github account in you terminal**

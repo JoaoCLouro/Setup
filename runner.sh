@@ -27,6 +27,17 @@
 #
 # To complete later
 
+
+parse_args() {
+    flags=()
+    # CLI args
+    agrs=$1
+
+    for arg in $args;
+    do
+        
+}
+
 chmod +x "arch-config/setup-arch.sh"
 chmod +x "debian-config/setup-arch.sh"
 chmod +x "general/*.sh"

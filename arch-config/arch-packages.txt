@@ -25,5 +25,5 @@
     gmp \
     libffi \
     ncurses \
-    openssh
-
+    openssh \
+    rsync

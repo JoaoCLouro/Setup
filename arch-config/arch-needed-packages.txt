@@ -1,19 +1,19 @@
-    git \
-    tlp \
-    ufw \
-    fastfetch \
-    neovim \
-    fish \
-    tree-sitter \
-    base-devel \
-    gdb \
-    clang \
-    curl \
-    wget \
-    github-cli \
-    ripgrep \
-    fd \
-    firefox \
-    ncurses \
+    git 
+    tlp 
+    ufw 
+    fastfetch 
+    neovim 
+    fish 
+    tree-sitter 
+    base-devel 
+    gdb 
+    clang 
+    curl 
+    wget 
+    github-cli 
+    ripgrep 
+    fd 
+    firefox 
+    ncurses 
     openssh
 

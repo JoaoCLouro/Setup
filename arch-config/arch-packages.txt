@@ -1,29 +1,29 @@
-    git \
-    sassc \
-    gtk-engine-murrine \
-    lm_sensors \
-    sysstat \
-    libgtop \
-    tlp \
-    ufw \
-    fastfetch \
-    fish \
-    tree-sitter \
-    base-devel \
-    gdb \
-    neovim \
-    python \
-    python-pip \
-    curl \
-    wget \
-    github-cli \
-    ripgrep \
-    fd \
-    clang \
-    pyright \
-    firefox \
-    gmp \
-    libffi \
-    ncurses \
-    openssh \
+    git 
+    sassc 
+    gtk-engine-murrine 
+    lm_sensors 
+    sysstat 
+    libgtop 
+    tlp 
+    ufw 
+    fastfetch 
+    fish 
+    tree-sitter 
+    base-devel 
+    gdb 
+    neovim 
+    python 
+    python-pip 
+    curl 
+    wget 
+    github-cli 
+    ripgrep 
+    fd 
+    clang 
+    pyright 
+    firefox 
+    gmp 
+    libffi 
+    ncurses 
+    openssh 
     rsync

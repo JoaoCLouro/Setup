@@ -7,8 +7,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
 
-
+# ==================================
 # Github login/identity status check
+# ==================================
 echo "==> Checking Git configuration..."
 if [ -z "$(git config --global user.name)" ] || [ -z "$(git config --global user.email)" ]; then
     echo "Git global identity is not set. Please configure it:"
@@ -22,8 +23,10 @@ else
     echo "Git identity already configured."
 fi
 
-
+# ===============
 # SSH keys config
+# ===============
+
 echo "==> Checking / Generating SSH Keys..."
 SSH_KEY="$HOME/.ssh/id_ed25519"
 if [ ! -f "$SSH_KEY" ]; then
@@ -46,8 +49,10 @@ echo "Your SSH Public Key (copy this for GitHub/servers):"
 cat "${SSH_KEY}.pub"
 echo "------------------------------------------------------------"
 
-
+# ===================================
 # Package updating and mirror sinking
+# ===================================
+
 echo "==> Updating package databases and upgrading system..."
 # FAILSAFE: If pacman fails, fetch a fresh global HTTPS mirrorlist
 if ! sudo pacman -Syu --noconfirm; then
@@ -66,19 +71,21 @@ if ! sudo pacman -Syu --noconfirm; then
     fi
 fi
 
-
+# ===================================
 # Package fetching from the main list
-echo "==> Installing system packages..."
-cat "arch-packages.txt" | sudo pacman -S --noconfirm --needed \
+# ===================================
 
-sudo sensors-detect --auto
+echo "==> Installing system packages..."
+sudo pacman -S --noconfirm --needed $(cat "arch-packages.txt")
     
-    echo "==> Enabling and starting SSH daemon..."
+echo "==> Enabling and starting SSH daemon..."
 sudo systemctl enable --now sshd
 
 
-
+# ===================
 # Setting up rust env
+# ===================
+
 echo "==> Installing Rust (rustup)..."
 if ! command -v rustc &> /dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -97,7 +104,12 @@ else
     echo "Warning: cargo not found. Skipping cargo tools installation."
 fi
 
+
+
+# ==================
 # Setting up haskell
+# ==================
+
 echo "==> Installing Haskell Toolchain (ghcup, ghc, cabal, stack, hls)..."
 export BOOTSTRAP_HASKELL_NONINTERACTIVE=1
 export BOOTSTRAP_HASKELL_INSTALL_STACK=1
@@ -114,7 +126,11 @@ if [ -f "$HOME/.ghcup/env" ]; then
     source "$HOME/.ghcup/env"
 fi
 
-# Setting up my neovim config from this repo source
+
+# =================
+# Setting up neovim
+# =================
+
 echo "==> Setting up Neovim configuration..."
 mkdir -p "$NVIM_CONFIG_DIR"
 
@@ -125,4 +141,6 @@ else
     echo "Warning: nvim-config.lua not found in $SCRIPT_DIR. Please ensure it exists alongside this script."
 fi
 
+
+# ALL DONE
 echo "==> Setup complete!"

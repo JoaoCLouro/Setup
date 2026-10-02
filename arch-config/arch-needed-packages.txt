@@ -16,4 +16,7 @@
     firefox 
     ncurses 
     openssh
+    docker
+    docker-compose
+    tailscale
 

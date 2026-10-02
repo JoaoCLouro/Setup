@@ -27,3 +27,6 @@
     ncurses 
     openssh 
     rsync
+    docker
+    docker-compose
+    tailscale

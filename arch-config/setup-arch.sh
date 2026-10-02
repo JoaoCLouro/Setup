@@ -75,9 +75,18 @@ fi
 # Package fetching from the main list
 # ===================================
 
-echo "==> Installing system packages..."
-sudo pacman -S --noconfirm --needed $(cat "arch-packages.txt")
+# Only installs packages if not dry run
+if [[ "$1" -ne "-n"]] then
+    echo "==> Installing system packages..."
+    sudo pacman -S --noconfirm --needed $(cat "arch-base.txt")
+
+    if [[ "$1" -eq "-f"]] then
+        echo "==> Installing main Desktop packages..."
+        sudo pacman -S --noconfirm --needed $(cat "arch-main.txt")
+    fi
+fi
     
+
 echo "==> Enabling and starting SSH daemon..."
 sudo systemctl enable --now sshd
 

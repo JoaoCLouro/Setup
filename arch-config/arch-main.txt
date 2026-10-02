@@ -1,0 +1,11 @@
+    sassc 
+    gtk-engine-murrine 
+    lm_sensors 
+    sysstat 
+    libgtop 
+    python 
+    python-pip 
+    pyright   
+    gmp 
+    libffi 
+    rsync

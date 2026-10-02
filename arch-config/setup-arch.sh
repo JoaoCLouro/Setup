@@ -90,6 +90,9 @@ fi
 echo "==> Enabling and starting SSH daemon..."
 sudo systemctl enable --now sshd
 
+echo "==> Adding the current user to libvirt sudoers..."
+sudo usermod -aG libvirt $USER
+
 
 # ===================
 # Setting up rust env

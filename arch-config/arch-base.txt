@@ -19,4 +19,4 @@
     docker
     docker-compose
     tailscale
-
+    inetutils
